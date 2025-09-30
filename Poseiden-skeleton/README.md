@@ -25,3 +25,18 @@
 ## Security
 1. Create user service to load user from  database and place in package com.nnk.springboot.services
 2. Add configuration class and place in package com.nnk.springboot.config
+
+## DEV1
+1. Reprise du projet
+2. Impossible de démarrer l'application telle qu'elle est :
+   erreur de dépendance Mysql : "[ERROR] 'dependencies.dependency.version' for mysql:mysql-connector-java:jar is missing.@ line 60, column 15@"
+   =>L'ancien groupId ( mysql) est remplacé par le nouveau standard officiel com.mysql maintenu par Oracle et présent dan Maven Central.
+   =>Et l'ancien artifact (mysql-connector-java) par le nouveau mysql-connector-j
+   => La version a été omise car gérée automatiquement par Spring-boot.
+3. remplacer javax.persistence par  jakarta.persistence dans les classes.
+4. import jakarta.validation.Valid => maven pour la spring-boot-starter-validation
+5. dépendance junit dans le fichier pom.xml pour les tests
+6. // TODO: Map columns in data tables(BidList,CurvePoint,Rating,Trade en s'inspirant de User)  with corresponding java fields 
+   => champs, Constructeurs , getters et setters
+7. Conclusion : mvn spring-boot:run => Compilation OK mais l'application ne démarre pas car base de donnée n'est pas opérationelle.
+
