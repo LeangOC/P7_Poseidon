@@ -14,7 +14,7 @@ public class Trade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TradeId")
-    private Integer tradeId;
+    private Integer TradeId;
 
     @NotBlank(message = "Account is mandatory")
     private String account;
@@ -67,11 +67,11 @@ public class Trade {
     }
 
     public Integer getTradeId() {
-        return tradeId;
+        return TradeId;
     }
 
     public void setTradeId(Integer tradeId) {
-        this.tradeId = tradeId;
+        this.TradeId = tradeId;
     }
 
     public String getAccount() {

@@ -40,3 +40,9 @@
    => champs, Constructeurs , getters et setters
 7. Conclusion : mvn spring-boot:run => Compilation OK mais l'application ne démarre pas car base de donnée n'est pas opérationelle.
 
+## DEV2
+1. Adapter le fichier application.preperties au nouvel nom de la base P7_Poseidon.
+2. Ajout de la création P7_Poseidon de database  le fichier data.sql
+3. Suppression de la dépendance H2
+4. Passer de update à none : spring.jpa.hibernate.ddl-auto=none => pour ne pas des erreurs : Error executing DDL "alter table trade add column trade_id integer not null auto_increment" 
+=> http://localhost:8080/login accessible avec login user
