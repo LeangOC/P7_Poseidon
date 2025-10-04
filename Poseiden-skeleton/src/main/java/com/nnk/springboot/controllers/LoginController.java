@@ -15,11 +15,9 @@ public class LoginController {
     private UserRepository userRepository;
 
 
-   @GetMapping("login")
-    public ModelAndView login() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
-        return mav;
+    @GetMapping({"/", "/login"})
+    public String loginPage() {
+        return "login"; // templates/login.html
     }
 
     @GetMapping("secure/article-details")
