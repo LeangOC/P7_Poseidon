@@ -45,7 +45,7 @@
 2. Ajout de la création P7_Poseidon de database  le fichier data.sql
 3. Suppression de la dépendance H2
 4. Passer de update à none : spring.jpa.hibernate.ddl-auto=none => pour ne pas des erreurs : Error executing DDL "alter table trade add column trade_id integer not null auto_increment" 
-=> http://localhost:8080/login accessible avec login user
+=> http://localhost:8080/login accessible avec login "user"
 
 Page de connexion par défaut  
 <img width="172" height="135" alt="image" src="https://github.com/user-attachments/assets/97f5cf6e-6b7f-43b8-a538-1d93cd8832d0" />
@@ -55,6 +55,9 @@ Et on arrive à la page : http://localhost:8080/?continue
 
 Et si on clique sur le lien "User management" http://localhost:8080/user/list   
 <img width="460" height="122" alt="image" src="https://github.com/user-attachments/assets/d8fdc424-c3df-4269-b5fb-7563691366a1" />
+
+# dev3
+Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_list_id et trade_id.
 
 
 
