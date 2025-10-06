@@ -22,6 +22,14 @@ public class LoginController {
         return mav;
     }
 
+    @GetMapping("success")
+    public ModelAndView loginSuccess() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("message", "Connexion OK 👌");
+        mav.setViewName("success"); // nom de la vue (success.html)
+        return mav;
+    }
+
     @GetMapping("secure/article-details")
     public ModelAndView getAllUserArticles() {
         ModelAndView mav = new ModelAndView();
