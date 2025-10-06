@@ -63,3 +63,4 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 
 
 
+
