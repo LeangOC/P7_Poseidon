@@ -60,7 +60,9 @@ Et si on clique sur le lien "User management" http://localhost:8080/user/list
 Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_list_id et trade_id.
 
 # dev3T
-Ajout login perso
+Ajout login perso :
+1. Ajout fichier SecurityConfig pour autoriser l'accès à certains fichiers.
+2. Ajout fichier login.html et login.css
 
 
 
