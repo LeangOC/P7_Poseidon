@@ -11,17 +11,17 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/app/login", "/images/**","/css/**", "/js/**").permitAll() // accès libre au login + statiques
+                        .requestMatchers("/login", "/images/**","/css/**", "/js/**").permitAll() // accès libre au login + statiques
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/app/login")      // ⚡ URL de ton LoginController
-                        .defaultSuccessUrl("/app/secure/article-details", true) // après login
+                        .loginPage("/login")      // ⚡ URL de ton LoginController
+                        .defaultSuccessUrl("/secure/article-details", true) // après login
                         .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/app/login?logout")
+                        .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 );
 
