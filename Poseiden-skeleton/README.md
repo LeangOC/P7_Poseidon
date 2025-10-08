@@ -73,6 +73,7 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 
 # solution1
 1. Mettre en place la page login de la marquette.
+2. Mettre en les deux pages home_user.html et home_admin.html pour tester les roles ADMIN et USER.
 
 
 
