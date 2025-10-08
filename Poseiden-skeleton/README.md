@@ -71,6 +71,9 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
    <img width="230" height="57" alt="image" src="https://github.com/user-attachments/assets/4781e914-790d-4fa4-904d-d17b092c3f9c" />
    <img width="234" height="99" alt="image" src="https://github.com/user-attachments/assets/f5b136d1-2346-48e1-9173-c50a933ec28b" />
 
+# solution1
+1. Mettre en place la page login de la marquette.
+
 
 
    
