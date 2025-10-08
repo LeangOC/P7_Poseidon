@@ -61,7 +61,12 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 1. Génération d'un mot de passe GenBcrypt : "$2a$10$iDGSGHH4FVlLOQkWghUnzu3T.Lqih1BgEhpLw0wcI7gpmpc7QCDZ."
 2. Ajout un utilisateur 'dupond' dans la base
 3. Ajoute la classe service CustomUserDetailsService
-4. 
+
+# dev4
+1. User.java => DBUser.java  : Conflit avec User natif de Spring ( OC)
+2. UserRepository.java => DBUserRepository.java
+3. Modifier la classe LoginController pour tester la gestion des roles ADMIN et USER.
+
 
 
 
