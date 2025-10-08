@@ -66,6 +66,15 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 1. User.java => DBUser.java  : Conflit avec User natif de Spring ( OC)
 2. UserRepository.java => DBUserRepository.java
 3. Modifier la classe LoginController pour tester la gestion des roles ADMIN et USER.
+4. Tests Connexion avec le user dupond et la page /admin est lui est interdit :  
+   <img width="241" height="144" alt="image" src="https://github.com/user-attachments/assets/559029be-1668-496f-b666-01fc4a1c6282" />
+   <img width="230" height="57" alt="image" src="https://github.com/user-attachments/assets/4781e914-790d-4fa4-904d-d17b092c3f9c" />
+   <img width="234" height="99" alt="image" src="https://github.com/user-attachments/assets/f5b136d1-2346-48e1-9173-c50a933ec28b" />
+
+
+
+   
+
 
 
 
