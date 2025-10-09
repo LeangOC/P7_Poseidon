@@ -58,7 +58,7 @@ public class BidList {
     private String side;
 
     // Constructeur par défaut (obligatoire pour JPA)
-    //public BidList() {}
+    public BidList() {}
 
     // Constructeur pour test ou création rapide
     public BidList(String account, String type, Double bidQuantity) {

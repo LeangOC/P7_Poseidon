@@ -89,7 +89,8 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 1. Mettre en place la page login /user/list et que seul le user avec le role ADMIN pourrait y accéder.
 2. Implémenter la classe service UserService pour les fonctions de la page /user/list (Add New, Edit, Delete) 
 
-
+# solution3
+1. Implémentation de la page /bidlist/list
 
 
    

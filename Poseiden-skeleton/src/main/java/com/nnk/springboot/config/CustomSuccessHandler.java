@@ -25,7 +25,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         if (roles.contains("ROLE_ADMIN")) {
             response.sendRedirect("/user/list");  // 🔹 redirection admin
         } else if (roles.contains("ROLE_USER")) {
-            response.sendRedirect("/user/home_user"); // 🔹 redirection user
+            response.sendRedirect("/trade/list"); // 🔹 redirection user
         } else {
             response.sendRedirect("/app/error");
         }

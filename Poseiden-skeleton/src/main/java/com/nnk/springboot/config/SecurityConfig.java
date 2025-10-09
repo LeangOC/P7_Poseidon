@@ -25,14 +25,26 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/app/login", "/css/**", "/images/**", "/js/**").permitAll()
-                        .requestMatchers("/user/list").hasRole("ADMIN") // 🔒 accès réservé ADMIN
-                        .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") // le reste accessible aux deux
-                        .anyRequest().authenticated()
 
+    .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/app/login", "/css/**", "/images/**", "/js/**").permitAll()
 
-                )
+                // HOME pages
+                .requestMatchers("/bidList/list").hasRole("ADMIN")
+                .requestMatchers("/trade/list").hasAnyRole("USER", "ADMIN")
+
+                // Autres modules
+                .requestMatchers("/curvePoint/**").hasRole("ADMIN")
+                .requestMatchers("/rating/list").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/rating/**").hasRole("ADMIN") // ex: add, update, delete
+                .requestMatchers("/ruleName/**").hasRole("ADMIN")
+
+                // Gestion des utilisateurs
+                .requestMatchers("/user/list").hasRole("ADMIN")
+                .requestMatchers("/user/**").hasRole("ADMIN")
+
+                .anyRequest().authenticated()
+        )
                 .formLogin(form -> form
                         .loginPage("/app/login")
                         .loginProcessingUrl("/perform_login")
@@ -45,7 +57,8 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/app/login?logout=true")
                         .permitAll()
                 )
-                .exceptionHandling(e -> e.accessDeniedPage("/app/error"));
+                .exceptionHandling(ex -> ex.accessDeniedPage("/app/error"));
+
 
         return http.build();
     }
