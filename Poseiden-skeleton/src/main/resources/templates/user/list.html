@@ -12,8 +12,13 @@
 		<div class="col-6">
 
 		</div>
+
 		<div class="col-6 text-right">
-			<a href="/">Home</a>&nbsp;|&nbsp;<a href="/login">Login</a>
+			<a href="/admin/home">Home</a>
+			&nbsp;|&nbsp;
+			<form th:action="@{/perform_logout}" method="POST" style="display:inline;">
+				<input type="submit" value="Logout"/>
+			</form>
 		</div>
 	</div>
 	<div class="row"><h2>User List</h2></div>
@@ -37,7 +42,10 @@
 					<td style="width: 25%" th:text="${user.role}"></td>
 					<td style="width: 15%" class="text-center">
 						<a th:href="@{/user/update/{id}(id=${user.id})}">Edit</a>&nbsp;|&nbsp;
-						<a th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a>
+						<a th:href="@{/user/delete/{id}(id=${user.id})}"
+						   onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+							Delete
+						</a>
 					</td>
 				</tr>
 			</tbody>

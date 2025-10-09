@@ -1,5 +1,5 @@
 package com.nnk.springboot.controllers;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,27 +7,25 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    // Route racine → login
+    // Redirection automatique de "/" vers "/app/login"
     @GetMapping("/")
-    public String root() {
-        return "login";
+    public String redirectToLogin() {
+        return "redirect:/app/login";
     }
 
+    // Page de login personnalisée
     @GetMapping("/app/login")
     public String login() {
         return "login";
     }
 
+    // Page d'accueil utilisateur
     @GetMapping("/user/home_user")
     public String homeUser() {
         return "home_user";
     }
 
-    @GetMapping("/admin/home_admin")
-    public String homeAdmin() {
-        return "home_admin";
-    }
-
+    // Page d'erreur (403)
     @GetMapping("/app/error")
     public ModelAndView error() {
         ModelAndView mav = new ModelAndView();

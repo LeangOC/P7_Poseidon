@@ -26,10 +26,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/images/**", "/js/**","/","/app/login").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/", "/app/login", "/css/**", "/images/**", "/js/**").permitAll()
+                        .requestMatchers("/user/list").hasRole("ADMIN") // 🔒 accès réservé ADMIN
+                        .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") // le reste accessible aux deux
                         .anyRequest().authenticated()
+
+
                 )
                 .formLogin(form -> form
                         .loginPage("/app/login")
