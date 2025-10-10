@@ -7,8 +7,16 @@
 </head>
 <body>
 <div class="container mt-4">
+	<!-- Barre de navigation en haut -->
 	<div class="d-flex justify-content-between align-items-center mb-3">
-		<h2>Bid List</h2>
+		<div>
+			<a href="/user/list">User List</a>&nbsp;|&nbsp;
+			<a href="/bidList/list">Bid List</a>&nbsp;|&nbsp;
+			<a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
+			<a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
+			<a href="/trade/list">Trade</a>&nbsp;|&nbsp;
+			<a href="/ruleName/list">Rule</a>
+		</div>
 		<div>
 			<span th:text="'Bonjour, ' + ${#authentication.name}"></span>
 			&nbsp;|&nbsp;
@@ -18,11 +26,16 @@
 		</div>
 	</div>
 
+	<!-- Titre principal -->
+	<h2 class="mb-4">Bid List</h2>
+
+	<!-- Boutons d'action -->
 	<div class="d-flex justify-content-between mb-3">
 		<a class="btn btn-primary btn-sm" th:href="@{/bidList/add}">Add New</a>
 		<a class="btn btn-secondary btn-sm" th:href="@{/bidList/list}">Home</a>
 	</div>
 
+	<!-- Tableau -->
 	<table class="table table-striped table-bordered">
 		<thead>
 		<tr>
