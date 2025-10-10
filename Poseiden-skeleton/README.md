@@ -90,13 +90,18 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 2. Implémenter la classe service UserService pour les fonctions de la page /user/list (Add New, Edit, Delete) 
 
 # solution3
-1. Implémentation des fonctionnalités de  /bidlist
+1. Implémentation des fonctionnalités de /bidlist
 
 # solution4
 1. Implémentation des fonctionnalités de /trade
 
 # solution5
-1. implémentation des fonctionnalités /rating
+1. Implémentation des fonctionnalités de /rating
+
+# solution6
+1. Implémentation des fonctionnalités de /curvePoint
+
+
 
 
 
