@@ -101,6 +101,9 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution6
 1. Implémentation des fonctionnalités de /curvePoint
 
+# solution7
+1. Implémentation des fonctionnalités de /ruleName
+
 
 
 

@@ -6,7 +6,7 @@ Hibernate: alter table bidlist modify column ask  float(53)
 
 # solution4,5
 
-rating/list.html, 
+rating/list.html, ( pour tous les list.html)
 remplacer ${#httpServletRequest.remoteUser} par ${#authentication.name}
 
 # solution 5 /rating/add
@@ -33,3 +33,12 @@ Caused by: org.springframework.beans.NotReadablePropertyException: Invalid prope
 # Refuser de supprimer rating
 @GetMapping("/rating/delete/{id}") par @PostMapping
 => le service n'a pas le bon méthode : public void deleteById(Integer id) {ratingRepository.deleteById(id);}
+
+# /ruleName/add, 
+Invalid property 'sql' of bean class
+<input type="text" th:field="*{sqlStr}" id="sql" placeholder="sqlStr" class="col-4"> => à remplacer par sqlStr
+# /ruleName/list ( pour Edit)
+<td th:text="${ruleName.sql}"></td> => <td th:text="${ruleName.sqlStr}"></td>
+
+# /ruleName/update
+<td th:text="${ruleName.sql}"></td> => <td th:text="${ruleName.sqlStr}"></td>
