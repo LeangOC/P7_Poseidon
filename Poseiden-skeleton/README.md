@@ -92,6 +92,9 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution3
 1. Implémentation de la page /bidlist/list
 
+# solution4
+1. Implémentation de la page /trade/*
+
 
    
 

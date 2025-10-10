@@ -2,19 +2,16 @@ package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-
 import java.sql.Timestamp;
-
 
 @Entity
 @Table(name = "trade")
 public class Trade {
 
-    // TODO: Map columns in data table TRADE with corresponding java fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "trade_id")
-    private Integer TradeId;
+    private Integer tradeId; // ✅ minuscule → bon nommage JavaBeans
 
     @NotBlank(message = "Account is mandatory")
     private String account;
@@ -58,20 +55,22 @@ public class Trade {
     private String sourceListId;
     private String side;
 
+    // --- Constructeurs ---
     public Trade() {}
 
-    // Constructeur pour test ou création rapide
     public Trade(String account, String type) {
         this.account = account;
         this.type = type;
     }
 
+    // --- Getters / Setters ---
+
     public Integer getTradeId() {
-        return TradeId;
+        return tradeId;
     }
 
     public void setTradeId(Integer tradeId) {
-        this.TradeId = tradeId;
+        this.tradeId = tradeId;
     }
 
     public String getAccount() {
