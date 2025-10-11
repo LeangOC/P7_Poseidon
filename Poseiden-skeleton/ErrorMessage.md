@@ -4,12 +4,14 @@ Hibernate: alter table bidlist modify column account  varchar(255)
 Hibernate: alter table bidlist modify column ask  float(53)
 
 
-# solution4,5
+# /trade/update
+Invalid property 'id' of bean class => 'id' par tradeId
 
-rating/list.html, ( pour tous les list.html)
+
+# rating/list.html, ( pour tous les list.html)
 remplacer ${#httpServletRequest.remoteUser} par ${#authentication.name}
 
-# solution 5 /rating/add
+# /rating/add
 Caused by: org.attoparser.ParseException: Error during execution of processor 
 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' 
 (template: "rating/add" - line 42, col 25) : 
@@ -24,7 +26,7 @@ Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expressi
 "rating.order" (template: "rating/list" - line 46, col 10)
 <td th:text="${rating.order}"></td> => rating.orderNumber
 
-# rating/update
+# /rating/update
 Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 
 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "rating/update" - line 42, col 25)
 Caused by: org.springframework.beans.NotReadablePropertyException: Invalid property 'order' of bean class 

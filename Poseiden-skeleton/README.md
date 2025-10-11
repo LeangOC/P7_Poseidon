@@ -104,6 +104,8 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution7
 1. Implémentation des fonctionnalités de /ruleName
 
+# solution8
+1. Ajustement des droits d'autorisation pour  les utilisateurs de type USER
 
 
 
