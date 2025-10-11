@@ -110,6 +110,9 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution9  
 1. Intégration le logo "poseidon_logo.png" dans chaque page 
 
+# solution10
+1. Modifier la page login pour qu'elle se rapproche de celle de la marquette.
+
 
 
 
