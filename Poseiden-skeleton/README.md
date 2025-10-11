@@ -107,6 +107,9 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution8
 1. Ajustement des droits d'autorisation pour  les utilisateurs de type USER
 
+# solution9  
+1. Intégration le logo "poseidon_logo.png" dans chaque page 
+
 
 
 
