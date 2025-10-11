@@ -113,6 +113,13 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution10
 1. Modifier la page login pour qu'elle se rapproche de celle de la marquette.
 
+# solution11 : javadoc
+1. Ajout le plugin JavaDoc
+2. DBUser,DBUserRepository,UserController et UserService
+3. Pour générer : mvn javadoc:javadoc
+   ou javadoc -d docs -sourcepath src/main/java -subpackages com.nnk.springboot
+4. Emplacement de JavaDoc : target/site/apidocs/index.html
+
 
 
 
