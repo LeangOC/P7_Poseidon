@@ -123,6 +123,14 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 # solution12
 1. Réfactorer les pages html pour qu'elles ressemblent à celles des marquettes.
 
+# solution13
+1. Remplacer Junit4 par Junit5
+2. Ajouter le plugin JaCoco
+3. Adapter les classes de Tests existants à Junit5
+4. Test Couverture de code JaCoCo = 22%
+
+
+
 
 
 
