@@ -120,6 +120,11 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
    ou javadoc -d docs -sourcepath src/main/java -subpackages com.nnk.springboot
 4. Emplacement de JavaDoc : target/site/apidocs/index.html
 
+# solution12
+1. Réfactorer les pages html pour qu'elles ressemblent à celles des marquettes.
+
+
+
 
 
 

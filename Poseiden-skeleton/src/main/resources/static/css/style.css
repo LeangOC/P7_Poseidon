@@ -6,6 +6,15 @@
             position: relative; /* nécessaire pour le positionnement absolu du logo */
         }
 
+    .page-title {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            font-size: 2em;
+            font-weight: 600;
+            /* color: #28a745; vert si absent noir */
+
+        }
        .footer-logo {
            position: fixed;
            bottom: 10px;
