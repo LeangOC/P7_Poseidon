@@ -129,6 +129,8 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 3. Adapter les classes de Tests existants à Junit5
 4. Test Couverture de code JaCoCo = 22%
 
+# solution14
+1. Implémentation des classes de Test Controlleur. 
 
 
 

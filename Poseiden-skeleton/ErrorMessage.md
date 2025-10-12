@@ -44,3 +44,11 @@ Invalid property 'sql' of bean class
 
 # /ruleName/update
 <td th:text="${ruleName.sql}"></td> => <td th:text="${ruleName.sqlStr}"></td>
+
+# classes Controller Test 
+L'annotation @WithMockUser n'est pas reconnu : ajouter la dépendance
+<artifactId>spring-security-test</artifactId> 
+et suppression les numéros de version pour laisser au parent Spring Boot 3.1.0 injecte les bonnes versions
+Commande permettant de savoir si la dépendance a été installée : 
+$ mvn dependency:tree | grep "spring-security-test"
+[INFO] +- org.springframework.security:spring-security-test:jar:6.1.0:test

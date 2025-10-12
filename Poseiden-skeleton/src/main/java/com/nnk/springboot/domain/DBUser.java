@@ -151,4 +151,7 @@ public class DBUser {
      * @param role le rôle à attribuer
      */
     public void setRole(String role) { this.role = role; }
+
 }
+
+

@@ -16,7 +16,7 @@ import jakarta.validation.Valid;
 public class CurveController {
     // TODO: Inject Curve Point service
     @Autowired
-    private com.nnk.springboot.services.CurvePointService curvePointService;
+    private com.nnk.springboot.service.CurvePointService curvePointService;
 
     @GetMapping("/curvePoint/list")
     public String home(Model model) {
