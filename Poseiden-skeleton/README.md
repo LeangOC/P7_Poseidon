@@ -131,6 +131,8 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 
 # solution14
 1. Implémentation des classes de Test Controlleur. 
+2. Implémentation des classes de Test Service.
+3. Test Couverture de code JaCoCo = 51%
 
 
 
