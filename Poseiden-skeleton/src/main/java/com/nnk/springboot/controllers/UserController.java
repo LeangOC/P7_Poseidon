@@ -112,6 +112,7 @@ public class UserController {
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             user.setId(id);
+            model.addAttribute("user", user); // ✅ indispensable pour éviter TemplateProcessingException
             return "user/update";
         }
         userService.update(user);

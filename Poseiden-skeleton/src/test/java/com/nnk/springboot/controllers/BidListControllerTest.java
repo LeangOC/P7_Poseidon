@@ -10,13 +10,16 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.ui.ExtendedModelMap;
 
 
 import java.util.Collections;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -65,4 +68,49 @@ class BidListControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/update"));
     }
+    @Test
+    void validate_ShouldReturnAddView_WhenValidationFails() throws Exception {
+        mockMvc.perform(post("/bidList/validate"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/add"));
+    }
+
+    @Test
+    void updateBid_ShouldRedirectOnSuccess() throws Exception {
+        Mockito.when(bidListService.findById(1)).thenReturn(Optional.of(new BidList()));
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("account", "Test")
+                        .param("type", "Type")
+                        .param("bidQuantity", "10"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/bidList/list"));
+    }
+
+    @Test
+    void updateBid_ShouldReturnUpdateView_WhenValidationFails() throws Exception {
+        mockMvc.perform(post("/bidList/update/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"));
+    }
+
+    @Test
+    void deleteBid_ShouldRedirectAfterDeletion() throws Exception {
+        mockMvc.perform(get("/bidList/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/bidList/list"));
+    }
+
+    @Test
+    void showUpdateForm_ShouldThrowException_WhenIdInvalid_DirectCall() {
+        BidListController controller = new BidListController();
+        ReflectionTestUtils.setField(controller, "bidListService", bidListService);
+
+        Mockito.when(bidListService.findById(999)).thenReturn(Optional.empty());
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            controller.showUpdateForm(999, new ExtendedModelMap());
+        });
+    }
+
+
 }

@@ -51,4 +51,53 @@ class CurveControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("curvePoint/update"));
     }
+    @Test
+    void validate_ShouldRedirectOnSuccess() throws Exception {
+        mockMvc.perform(post("/curvePoint/validate")
+                        .param("curveId", "1")
+                        .param("term", "10")
+                        .param("value", "20"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/curvePoint/list"));
+    }
+
+    @Test
+    void validate_ShouldRedirectOnSuccess_WhenNoValidationErrors() throws Exception {
+        mockMvc.perform(post("/curvePoint/validate")
+                        .param("curveId", "1")
+                        .param("term", "10")
+                        .param("value", "20"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/curvePoint/list"));
+    }
+
+
+    @Test
+    void updateBid_ShouldRedirectOnSuccess() throws Exception {
+        Mockito.when(curvePointService.findById(1)).thenReturn(Optional.of(new CurvePoint()));
+        mockMvc.perform(post("/curvePoint/update/1")
+                        .param("curveId", "1")
+                        .param("term", "10")
+                        .param("value", "20"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/curvePoint/list"));
+    }
+
+    @Test
+    void updateBid_ShouldRedirectOnSuccess_WhenNoValidationErrors() throws Exception {
+        Mockito.when(curvePointService.findById(1)).thenReturn(Optional.of(new CurvePoint()));
+        mockMvc.perform(post("/curvePoint/update/1")
+                        .param("curveId", "1")
+                        .param("term", "10")
+                        .param("value", "20"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/curvePoint/list"));
+    }
+    @Test
+    void deleteBid_ShouldRedirectAfterDeletion() throws Exception {
+        mockMvc.perform(get("/curvePoint/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/curvePoint/list"));
+    }
+
 }

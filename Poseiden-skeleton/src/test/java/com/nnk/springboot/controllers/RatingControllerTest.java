@@ -50,4 +50,50 @@ class RatingControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("rating/update"));
     }
+    @Test
+    void validate_ShouldRedirectOnSuccess() throws Exception {
+        mockMvc.perform(post("/rating/validate")
+                        .param("moodysRating", "A")
+                        .param("sandPRating", "B")
+                        .param("fitchRating", "C")
+                        .param("orderNumber", "10"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/rating/list"));
+    }
+
+    @Test
+    void validate_ShouldRedirectOnSuccess_WhenNoValidationErrors() throws Exception {
+        mockMvc.perform(post("/rating/validate")
+                        .param("moodysRating", "A")
+                        .param("sandPRating", "B")
+                        .param("fitchRating", "C")
+                        .param("orderNumber", "10"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/rating/list"));
+    }
+
+
+    @Test
+    void updateRating_ShouldRedirectOnSuccess() throws Exception {
+        Mockito.when(ratingService.findById(1)).thenReturn(Optional.of(new com.nnk.springboot.domain.Rating()));
+        mockMvc.perform(post("/rating/update/1")
+                        .param("orderNumber", "5"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/rating/list"));
+    }
+
+    @Test
+    void updateRating_ShouldRedirectToList_WhenValidationFails() throws Exception {
+        mockMvc.perform(post("/rating/update/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/rating/list"));
+    }
+
+    @Test
+    void deleteRating_ShouldRedirectAfterDeletion() throws Exception {
+        mockMvc.perform(get("/rating/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/rating/list"));
+    }
+
 }

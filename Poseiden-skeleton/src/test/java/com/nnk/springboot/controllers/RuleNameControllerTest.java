@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
@@ -44,4 +45,62 @@ class RuleNameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("ruleName/update"));
     }
+
+    @Test
+    void validate_ShouldRedirectOnSuccess() throws Exception {
+        mockMvc.perform(post("/ruleName/validate")
+                        .param("name", "Rule1")
+                        .param("description", "desc"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/ruleName/list"));
+    }
+
+    @Test
+    void validate_ShouldRedirectOnSuccess_WhenNoValidationErrors() throws Exception {
+        mockMvc.perform(post("/ruleName/validate")
+                        .param("name", "RuleTest")
+                        .param("description", "Desc")
+                        .param("json", "testJson")
+                        .param("template", "temp")
+                        .param("sqlStr", "sql")
+                        .param("sqlPart", "part"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/ruleName/list"));
+    }
+
+
+    @Test
+    void updateRuleName_ShouldRedirectOnSuccess() throws Exception {
+        Mockito.when(ruleNameService.getRuleNameById(1)).thenReturn(Optional.of(new RuleName()));
+        mockMvc.perform(post("/ruleName/update/1")
+                        .param("name", "RuleUpdated"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/ruleName/list"));
+    }
+
+    @Test
+    void updateRuleName_ShouldRedirectOnSuccess_WhenNoValidationErrors() throws Exception {
+        Mockito.when(ruleNameService.getRuleNameById(1)).thenReturn(Optional.of(new RuleName()));
+
+        mockMvc.perform(post("/ruleName/update/1")
+                        .param("name", "RuleUpdated")
+                        .param("description", "Desc updated")
+                        .param("json", "jsonData")
+                        .param("template", "templ")
+                        .param("sqlStr", "sql")
+                        .param("sqlPart", "part"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/ruleName/list"));
+    }
+
+
+    @Test
+    void deleteRuleName_ShouldRedirectAfterDeletion() throws Exception {
+        Mockito.when(ruleNameService.getRuleNameById(1)).thenReturn(Optional.of(new RuleName()));
+        mockMvc.perform(get("/ruleName/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/ruleName/list"));
+    }
+
+
 }

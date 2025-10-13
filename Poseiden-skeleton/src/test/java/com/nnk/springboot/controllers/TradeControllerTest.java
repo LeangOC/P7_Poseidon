@@ -51,4 +51,51 @@ class TradeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("trade/update"));
     }
+    @Test
+    void validate_ShouldRedirectOnSuccess() throws Exception {
+        mockMvc.perform(post("/trade/validate")
+                        .param("account", "Test")
+                        .param("type", "Type")
+                        .param("buyQuantity", "10"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/trade/list"));
+    }
+
+    @Test
+    void validate_ShouldReturnAddView_WhenValidationFails() throws Exception {
+        mockMvc.perform(post("/trade/validate"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("trade/add"));
+    }
+
+    @Test
+    void updateTrade_ShouldRedirectOnSuccess() throws Exception {
+        Trade existingTrade = new Trade();
+        existingTrade.setTradeId(1);
+        Mockito.when(tradeService.findById(1)).thenReturn(Optional.of(existingTrade));
+
+        mockMvc.perform(post("/trade/update/1")
+                        .param("account", "TestAccount")
+                        .param("type", "TypeA")
+                        .param("buyQuantity", "20"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/trade/list"));
+    }
+
+
+
+    @Test
+    void updateTrade_ShouldReturnUpdateView_WhenValidationFails() throws Exception {
+        mockMvc.perform(post("/trade/update/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("trade/update"));
+    }
+
+    @Test
+    void deleteTrade_ShouldRedirectAfterDeletion() throws Exception {
+        mockMvc.perform(get("/trade/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/trade/list"));
+    }
+
 }

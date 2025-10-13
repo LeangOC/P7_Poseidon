@@ -42,4 +42,19 @@ class LoginControllerTest {
                 .andExpect(view().name("403"))
                 .andExpect(model().attributeExists("errorMsg"));
     }
+
+    @Test
+    void adminHome_ShouldRedirectToBidList() throws Exception {
+        mockMvc.perform(get("/admin/home"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/bidList/list"));
+    }
+
+    @Test
+    void homeUser_ShouldReturnHomeUserView() throws Exception {
+        mockMvc.perform(get("/user/home_user"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("home_user"));
+    }
+
 }
