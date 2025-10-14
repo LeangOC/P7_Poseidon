@@ -60,8 +60,8 @@ Et si on clique sur le lien "User management" http://localhost:8080/user/list
 Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_list_id et trade_id.
 1. Génération d'un mot de passe GenBcrypt : "$2a$10$iDGSGHH4FVlLOQkWghUnzu3T.Lqih1BgEhpLw0wcI7gpmpc7QCDZ."
 2. Ajout un utilisateur 'dupond' dans la base
-3. Ajoute la classe service CustomUserDetailsService
-4. 
+3. Ajoute la classe service CustomUserDetailsService  
+
 
 
 
