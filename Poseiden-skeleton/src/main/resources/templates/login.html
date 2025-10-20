@@ -96,6 +96,11 @@
         .footer-logo img {
             width: 120px;
         }
+        .alert {
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+}
     </style>
 </head>
 
@@ -111,6 +116,15 @@
 
     <div class="login-box">
         <h3>Login with Username and Password</h3>
+        <!-- ✅ Message d'erreur ou de déconnexion -->
+        <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
+            Invalid username or password.
+        </div>
+
+        <div th:if="${param.logout}" class="alert alert-success text-center" role="alert">
+            You have been logged out successfully.
+        </div>
+
         <form th:action="@{/perform_login}" method="post">
             <div class="form-row">
                 <label for="username">User:</label>

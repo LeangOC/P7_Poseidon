@@ -26,6 +26,7 @@ public class LoginController {
     }
 
     // Page d'erreur (403)
+
     @GetMapping("/app/error")
     public ModelAndView error() {
         ModelAndView mav = new ModelAndView();
