@@ -8,13 +8,13 @@
 	<link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
 
+<div class="container mt-4">
 	<!-- Titre principal centré -->
 	<h1 class="page-title">Curve List Screen</h1>
-
-	<div class="row">
-		<div class="col-6">
+	<div class="d-flex justify-content-between align-items-center mb-3">
+		<div>
+			<a href="/user/list">User List</a>&nbsp;|&nbsp;
 			<a href="/bidList/list">Bid List</a>&nbsp;|&nbsp;
 			<a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
 			<a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
@@ -23,18 +23,20 @@
 		</div>
 		<div class="col-6 text-right">
 			Logged in user: <b th:inline="text" class="user">[[${#authentication.name}]]</b>
-			<form th:action="@{/perform_logout}" method="POST" style="display:inline;">
+			<form th:action="@{/perform_logout}" method="POST" >
 				<input type="submit" value="Logout"/>
 			</form>
 		</div>
 	</div>
 
-	<div class="row mt-4">
-		<h2>Curve Point List</h2>
+
+	<h2 class="mb-4">Curve Point List</h2>
+
+
+	<div class="d-flex justify-content-between mb-3">
+		<a href="/curvePoint/add" class="btn btn-primary btn-sm mb-3">Add New</a>
 	</div>
 
-	<div class="row">
-		<a href="/curvePoint/add" class="btn btn-primary btn-sm mb-3">Add New</a>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
@@ -59,7 +61,6 @@
 			</tbody>
 		</table>
 	</div>
-</div>
 
 <div class="footer-logo">
 	<img th:src="@{/images/poseidon_logo.png}" alt="Poseidon Capital Solutions Logo">

@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `P7_Poseidon`;
 USE P7_Poseidon;
 
 CREATE TABLE BidList (
-  bidListId INT NOT NULL AUTO_INCREMENT,
+  bid_list_id INT NOT NULL AUTO_INCREMENT,
   account VARCHAR(30) NOT NULL,
   type VARCHAR(30) NOT NULL,
   bidQuantity DOUBLE,
@@ -25,11 +25,11 @@ CREATE TABLE BidList (
   sourceListId VARCHAR(125),
   side VARCHAR(125),
 
-  PRIMARY KEY (bidListId)
+  PRIMARY KEY (bid_list_id)
 );
 
 CREATE TABLE Trade (
-  TradeId INT NOT NULL AUTO_INCREMENT,
+  trade_id INT NOT NULL AUTO_INCREMENT,
   account VARCHAR(30) NOT NULL,
   type VARCHAR(30) NOT NULL,
   buyQuantity DOUBLE,
@@ -51,7 +51,7 @@ CREATE TABLE Trade (
   sourceListId VARCHAR(125),
   side VARCHAR(125),
 
-  PRIMARY KEY (TradeId)
+  PRIMARY KEY (trade_id)
 );
 
 CREATE TABLE CurvePoint (
@@ -97,5 +97,5 @@ CREATE TABLE Users (
   PRIMARY KEY (Id)
 );
 
-insert into Users(fullname, username, password, role) values("Administrator", "admin", "$2a$10$pBV8ILO/s/nao4wVnGLrh.sa/rnr5pDpbeC4E.KNzQWoy8obFZdaa", "ADMIN");
-insert into Users(fullname, username, password, role) values("User", "user", "$2a$10$pBV8ILO/s/nao4wVnGLrh.sa/rnr5pDpbeC4E.KNzQWoy8obFZdaa", "USER");
+insert into Users(fullname, username, password, role) values("Administrator", "admin", "$2a$10$ZbZJlD49yT7STuVYGLmikuQ9omsol25kJa/KiWnVqm/kLPz8b9Vbm", "ADMIN");
+insert into Users(fullname, username, password, role) values("User", "user", "$2a$10$0o3IT/vlnCFgI9zdoSGkdOsWBd/UOVHcEKeomcGH0de.1fNTeiTCG", "USER");
