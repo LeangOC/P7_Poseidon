@@ -121,7 +121,12 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 4. Emplacement de JavaDoc : target/site/apidocs/index.html
 
 # solution12
-1. Réfactorer les pages html pour qu'elles ressemblent à celles des marquettes.
+1. Réfactorer les pages html pour qu'elles ressemblent à celles des marquettes.  
+   
+   La page de "User List" :  
+   
+   <img width="512" height="245" alt="image" src="https://github.com/user-attachments/assets/6770625e-5ab0-46d6-9889-65d4a4771a06" />
+
 
 # solution13
 1. Remplacer Junit4 par Junit5
@@ -138,10 +143,21 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 1. Nettoyage code : trade.java,HomeController,
 2. Ajout des tests supplémentaires pour les classes de Contrôleur.
 3. Ajout des tests supplémentaires pour les classes de Service.
-4. Test Couverture de code JaCoCo = 92%
+4. Test Couverture de code JaCoCo = 92%  
+
+Rapport couverture de code JaCoco  
+
+<img width="541" height="112" alt="image" src="https://github.com/user-attachments/assets/4924a531-63c4-4a81-827d-abf0e516c429" />
+
 
 # solution16
 1. Finaliser le Javadoc pour l'ensemble des classes : contrôleur, service, entité, config, repository  
+
+Javadoc :  
+
+<img width="481" height="226" alt="image" src="https://github.com/user-attachments/assets/7f52c6b4-1372-4227-849e-f2d7eb58a899" />
+
+    
 
 
 
@@ -152,6 +168,7 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 
 
    
+
 
 
 
