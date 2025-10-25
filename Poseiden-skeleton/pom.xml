@@ -103,6 +103,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.6.3</version>
 				<configuration>
+					<failOnError>false</failOnError>
 					<source>17</source> <!-- adapte à ta version Java -->
 					<encoding>UTF-8</encoding>
 					<charset>UTF-8</charset>

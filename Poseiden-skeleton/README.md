@@ -140,6 +140,8 @@ Réfactorer les deux classes modèles BitList et Trade sur les colonnes en bid_l
 3. Ajout des tests supplémentaires pour les classes de Service.
 4. Test Couverture de code JaCoCo = 92%
 
+# solution16
+1. Finaliser le Javadoc pour l'ensemble des classes : contrôleur, service, entité, config, repository  
 
 
 

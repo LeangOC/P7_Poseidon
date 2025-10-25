@@ -1,31 +1,52 @@
 package com.nnk.springboot.domain;
 
-//import org.springframework.beans.factory.annotation.Required;
-
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
-import java.sql.Date;
 import java.sql.Timestamp;
 
+/**
+ * Représente une offre ("BidList") dans le système.
+ * <p>
+ * Cette entité correspond à la table <b>bidlist</b> en base de données.
+ * Elle contient les informations relatives à une offre financière, telles que
+ * le compte, le type, la quantité d'achat/vente et d'autres métadonnées.
+ * </p>
+ *
+ * @author
+ */
 @Entity
 @Table(name = "bidlist")
 public class BidList {
-    // TODO: Map columns in data table BIDLIST with corresponding java fields
+
+    /**
+     * Identifiant unique de la BidList (clé primaire auto-générée).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bid_list_id")
     private Integer bidListId;
 
+    /**
+     * Nom du compte associé à la BidList.
+     */
     @NotBlank(message = "Account is mandatory")
     private String account;
 
+    /**
+     * Type de la BidList (ex : "Spot", "Forward"...).
+     */
     @NotBlank(message = "Type is mandatory")
     private String type;
 
+    /**
+     * Quantité d’achat.
+     */
     @Column(name = "bidQuantity")
     private Double bidQuantity;
 
+    /**
+     * Quantité de vente.
+     */
     @Column(name = "askQuantity")
     private Double askQuantity;
 
@@ -33,6 +54,9 @@ public class BidList {
     private Double ask;
     private String benchmark;
 
+    /**
+     * Date de la BidList.
+     */
     @Column(name = "bidListDate")
     private Timestamp bidListDate;
 
@@ -41,14 +65,19 @@ public class BidList {
     private String status;
     private String trader;
     private String book;
-
     private String creationName;
 
+    /**
+     * Date de création de la BidList.
+     */
     @Column(name = "creationDate")
     private Timestamp creationDate;
 
     private String revisionName;
 
+    /**
+     * Date de révision de la BidList.
+     */
     @Column(name = "revisionDate")
     private Timestamp revisionDate;
 
@@ -57,10 +86,18 @@ public class BidList {
     private String sourceListId;
     private String side;
 
-    // Constructeur par défaut (obligatoire pour JPA)
+    /**
+     * Constructeur par défaut requis par JPA.
+     */
     public BidList() {}
 
-    // Constructeur pour test ou création rapide
+    /**
+     * Constructeur de commodité pour créer rapidement une BidList.
+     *
+     * @param account     le nom du compte
+     * @param type        le type d’opération
+     * @param bidQuantity la quantité d’achat
+     */
     public BidList(String account, String type, Double bidQuantity) {
         this.account = account;
         this.type = type;
@@ -242,4 +279,5 @@ public class BidList {
     public void setSide(String side) {
         this.side = side;
     }
+
 }

@@ -9,6 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Contrôleur gérant les opérations CRUD pour l'entité {@link BidList}.
+ * <p>
+ * Cette classe permet d'afficher la liste des BidList, d'ajouter,
+ * de modifier et de supprimer des enregistrements.
+ * </p>
+ */
 @Controller
 @RequestMapping("/bidList")
 public class BidListController {
@@ -17,7 +24,10 @@ public class BidListController {
     private BidListService bidListService;
 
     /**
-     * Affiche la liste des BidList.
+     * Affiche la liste complète des BidList.
+     *
+     * @param model modèle utilisé pour passer les données à la vue
+     * @return la vue "bidList/list"
      */
     @GetMapping("/list")
     public String home(Model model) {
@@ -26,7 +36,10 @@ public class BidListController {
     }
 
     /**
-     * Formulaire d’ajout.
+     * Affiche le formulaire d’ajout d’un nouveau BidList.
+     *
+     * @param model modèle pour initialiser le formulaire
+     * @return la vue "bidList/add"
      */
     @GetMapping("/add")
     public String addBidForm(Model model) {
@@ -35,7 +48,12 @@ public class BidListController {
     }
 
     /**
-     * Validation et sauvegarde d’un nouveau BidList.
+     * Valide et enregistre un nouveau BidList.
+     *
+     * @param bidList l'objet à valider et enregistrer
+     * @param result  résultat de la validation
+     * @param model   modèle pour la vue
+     * @return redirection vers la liste si succès, sinon retour au formulaire
      */
     @PostMapping("/validate")
     public String validate(@Valid @ModelAttribute("bidList") BidList bidList,
@@ -48,7 +66,11 @@ public class BidListController {
     }
 
     /**
-     * Affiche le formulaire de mise à jour.
+     * Affiche le formulaire de mise à jour pour un BidList existant.
+     *
+     * @param id    identifiant du BidList à modifier
+     * @param model modèle pour passer l'objet à la vue
+     * @return la vue "bidList/update"
      */
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
@@ -59,7 +81,13 @@ public class BidListController {
     }
 
     /**
-     * Sauvegarde de la mise à jour.
+     * Met à jour un BidList existant.
+     *
+     * @param id      identifiant du BidList à mettre à jour
+     * @param bidList l'objet contenant les nouvelles valeurs
+     * @param result  résultat de la validation
+     * @param model   modèle pour la vue
+     * @return redirection vers la liste si succès, sinon retour au formulaire
      */
     @PostMapping("/update/{id}")
     public String updateBid(@PathVariable("id") Integer id,
@@ -74,7 +102,10 @@ public class BidListController {
     }
 
     /**
-     * Suppression d’un BidList.
+     * Supprime un BidList par son identifiant.
+     *
+     * @param id identifiant du BidList à supprimer
+     * @return redirection vers la liste des BidList
      */
     @GetMapping("/delete/{id}")
     public String deleteBid(@PathVariable("id") Integer id) {

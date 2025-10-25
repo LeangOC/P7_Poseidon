@@ -1,13 +1,21 @@
 package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
-//import javax.validation.constraints.NotBlank;
-import java.sql.Timestamp;
 
+/**
+ * Représente une règle métier ("RuleName") utilisée dans le système.
+ * <p>
+ * Cette entité correspond à la table <b>rulename</b> et stocke les informations
+ * nécessaires à la définition et à l’exécution d’une règle (nom, description, SQL...).
+ * </p>
+ */
 @Entity
 @Table(name = "rulename")
 public class RuleName {
-    // TODO: Map columns in data table RULENAME with corresponding java fields
+
+    /**
+     * Identifiant unique de la règle (clé primaire auto-générée).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,8 +27,21 @@ public class RuleName {
     private String sqlStr;
     private String sqlPart;
 
+    /**
+     * Constructeur par défaut requis par JPA.
+     */
     public RuleName() {}
 
+    /**
+     * Constructeur de commodité pour créer une règle complète.
+     *
+     * @param name        nom de la règle
+     * @param description description de la règle
+     * @param json        représentation JSON associée
+     * @param template    modèle de la règle
+     * @param sqlStr      requête SQL principale
+     * @param sqlPart     partie SQL additionnelle
+     */
     public RuleName(String name, String description, String json, String template, String sqlStr, String sqlPart) {
         this.name = name;
         this.description = description;
@@ -29,6 +50,8 @@ public class RuleName {
         this.sqlStr = sqlStr;
         this.sqlPart = sqlPart;
     }
+
+    // --- Getters & Setters ---
 
     public Integer getId() {
         return id;

@@ -4,18 +4,34 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
+/**
+ * Représente une transaction ("Trade") dans le système.
+ * <p>
+ * Cette entité correspond à la table <b>trade</b> et contient les informations
+ * relatives à un échange financier : compte, type, quantités, prix, etc.
+ * </p>
+ */
 @Entity
 @Table(name = "trade")
 public class Trade {
 
+    /**
+     * Identifiant unique du Trade (clé primaire auto-générée).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "trade_id")
-    private Integer tradeId; // ✅ minuscule → bon nommage JavaBeans
+    private Integer tradeId;
 
+    /**
+     * Compte associé à la transaction.
+     */
     @NotBlank(message = "Account is mandatory")
     private String account;
 
+    /**
+     * Type de transaction (ex : "Buy", "Sell"...).
+     */
     @NotBlank(message = "Type is mandatory")
     private String type;
 
@@ -39,7 +55,6 @@ public class Trade {
     private String trader;
     private String benchmark;
     private String book;
-
     private String creationName;
 
     @Column(name = "creationDate")
@@ -55,15 +70,23 @@ public class Trade {
     private String sourceListId;
     private String side;
 
-    // --- Constructeurs ---
+    /**
+     * Constructeur par défaut requis par JPA.
+     */
     public Trade() {}
 
+    /**
+     * Constructeur de commodité pour créer rapidement un Trade.
+     *
+     * @param account nom du compte
+     * @param type    type de transaction
+     */
     public Trade(String account, String type) {
         this.account = account;
         this.type = type;
     }
 
-    // --- Getters / Setters ---
+    // --- Getters & Setters ---
 
     public Integer getTradeId() {
         return tradeId;
@@ -93,7 +116,41 @@ public class Trade {
         return buyQuantity;
     }
 
+    public void setBuyQuantity(Double buyQuantity) {
+        this.buyQuantity = buyQuantity;
+    }
 
+    public Double getSellQuantity() {
+        return sellQuantity;
+    }
+
+    public void setSellQuantity(Double sellQuantity) {
+        this.sellQuantity = sellQuantity;
+    }
+
+    public Double getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(Double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public Double getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(Double sellPrice) {
+        this.sellPrice = sellPrice;
+    }
+
+    public Timestamp getTradeDate() {
+        return tradeDate;
+    }
+
+    public void setTradeDate(Timestamp tradeDate) {
+        this.tradeDate = tradeDate;
+    }
 
     public String getSecurity() {
         return security;
@@ -110,5 +167,92 @@ public class Trade {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getTrader() {
+        return trader;
     }
 
+    public void setTrader(String trader) {
+        this.trader = trader;
+    }
+
+    public String getBenchmark() {
+        return benchmark;
+    }
+
+    public void setBenchmark(String benchmark) {
+        this.benchmark = benchmark;
+    }
+
+    public String getBook() {
+        return book;
+    }
+
+    public void setBook(String book) {
+        this.book = book;
+    }
+
+    public String getCreationName() {
+        return creationName;
+    }
+
+    public void setCreationName(String creationName) {
+        this.creationName = creationName;
+    }
+
+    public Timestamp getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getRevisionName() {
+        return revisionName;
+    }
+
+    public void setRevisionName(String revisionName) {
+        this.revisionName = revisionName;
+    }
+
+    public Timestamp getRevisionDate() {
+        return revisionDate;
+    }
+
+    public void setRevisionDate(Timestamp revisionDate) {
+        this.revisionDate = revisionDate;
+    }
+
+    public String getDealName() {
+        return dealName;
+    }
+
+    public void setDealName(String dealName) {
+        this.dealName = dealName;
+    }
+
+    public String getDealType() {
+        return dealType;
+    }
+
+    public void setDealType(String dealType) {
+        this.dealType = dealType;
+    }
+
+    public String getSourceListId() {
+        return sourceListId;
+    }
+
+    public void setSourceListId(String sourceListId) {
+        this.sourceListId = sourceListId;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+}

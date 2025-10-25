@@ -3,36 +3,72 @@ package com.nnk.springboot.domain;
 import java.sql.Timestamp;
 import jakarta.persistence.*;
 
+/**
+ * Représente un point de courbe ("CurvePoint") dans le système.
+ * <p>
+ * Cette entité correspond à la table <b>curvepoint</b> en base de données
+ * et contient les données liées à une courbe financière (ID, date, valeur...).
+ * </p>
+ */
 @Entity
 @Table(name = "curvepoint")
 public class CurvePoint {
-    // TODO: Map columns in data table CURVEPOINT with corresponding java fields
+
+    /**
+     * Identifiant unique du CurvePoint (clé primaire auto-générée).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
 
+    /**
+     * Identifiant de la courbe à laquelle ce point appartient.
+     */
     @Column(name = "CurveId")
     private Integer curveId;
 
+    /**
+     * Date de référence du point de courbe.
+     */
     @Column(name = "asOfDate")
     private Timestamp asOfDate;
 
+    /**
+     * Terme associé au point (maturité).
+     */
     private Double term;
+
+    /**
+     * Valeur du point sur la courbe.
+     */
     private Double value;
 
+    /**
+     * Date de création du point.
+     */
     @Column(name = "creationDate")
     private Timestamp creationDate;
 
-    // Constructeur par défaut (obligatoire pour JPA)
+    /**
+     * Constructeur par défaut requis par JPA.
+     */
     public CurvePoint() {}
 
-    // Constructeur pour test ou création rapide
+    /**
+     * Constructeur de commodité pour créer un CurvePoint.
+     *
+     * @param curveId identifiant de la courbe
+     * @param term    terme (maturité)
+     * @param value   valeur du point
+     */
     public CurvePoint(Integer curveId, Double term, Double value) {
         this.curveId = curveId;
         this.term = term;
         this.value = value;
     }
+
+    // --- Getters & Setters ---
 
     public Integer getId() {
         return id;

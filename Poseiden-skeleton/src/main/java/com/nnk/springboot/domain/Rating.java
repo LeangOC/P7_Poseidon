@@ -1,14 +1,21 @@
 package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import java.sql.Timestamp;
 
+/**
+ * Représente une notation ("Rating") financière.
+ * <p>
+ * Cette entité correspond à la table <b>rating</b> en base de données
+ * et stocke les différentes notations d’une entité selon plusieurs agences.
+ * </p>
+ */
 @Entity
 @Table(name = "rating")
 public class Rating {
-    // TODO: Map columns in data table RATING with corresponding java fields
+
+    /**
+     * Identifiant unique de la notation (clé primaire auto-générée).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,16 +23,33 @@ public class Rating {
     private String moodysRating;
     private String sandPRating;
     private String fitchRating;
+
+    /**
+     * Numéro d’ordre de la notation (priorité ou classement interne).
+     */
     private Integer orderNumber;
 
+    /**
+     * Constructeur par défaut requis par JPA.
+     */
     public Rating() {}
 
+    /**
+     * Constructeur de commodité pour créer une notation complète.
+     *
+     * @param moodysRating notation Moody’s
+     * @param sandPRating  notation Standard & Poor’s
+     * @param fitchRating  notation Fitch
+     * @param orderNumber  numéro d’ordre
+     */
     public Rating(String moodysRating, String sandPRating, String fitchRating, Integer orderNumber) {
         this.moodysRating = moodysRating;
         this.sandPRating = sandPRating;
         this.fitchRating = fitchRating;
         this.orderNumber = orderNumber;
     }
+
+    // --- Getters & Setters ---
 
     public Integer getId() {
         return id;

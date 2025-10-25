@@ -8,6 +8,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service gérant les opérations CRUD sur les entités {@link BidList}.
+ * <p>
+ * Cette classe interagit avec le {@link BidListRepository} pour accéder
+ * aux données persistées dans la base.
+ * </p>
+ */
 @Service
 public class BidListService {
 
@@ -15,28 +22,40 @@ public class BidListService {
     private BidListRepository bidListRepository;
 
     /**
-     * Récupère la liste complète des BidList.
+     * Récupère la liste complète des {@link BidList}.
+     *
+     * @return liste de toutes les entités {@link BidList}
      */
     public List<BidList> findAll() {
         return bidListRepository.findAll();
     }
 
     /**
-     * Recherche un BidList par son ID.
+     * Recherche un {@link BidList} par son identifiant.
+     *
+     * @param id identifiant du {@link BidList}
+     * @return un {@link Optional} contenant le {@link BidList} s’il existe
      */
     public Optional<BidList> findById(Integer id) {
         return bidListRepository.findById(id);
     }
 
     /**
-     * Sauvegarde un nouveau BidList dans la base.
+     * Sauvegarde un nouveau {@link BidList} dans la base de données.
+     *
+     * @param bidList entité à sauvegarder
+     * @return l’entité sauvegardée
      */
     public BidList save(BidList bidList) {
         return bidListRepository.save(bidList);
     }
 
     /**
-     * Met à jour un BidList existant.
+     * Met à jour un {@link BidList} existant à partir des nouvelles valeurs.
+     *
+     * @param updatedBid entité contenant les nouvelles valeurs
+     * @return le {@link BidList} mis à jour
+     * @throws IllegalArgumentException si l’entité à mettre à jour n’existe pas
      */
     public BidList update(BidList updatedBid) {
         BidList existingBid = bidListRepository.findById(updatedBid.getBidListId())
@@ -63,7 +82,9 @@ public class BidListService {
     }
 
     /**
-     * Supprime un BidList par ID.
+     * Supprime un {@link BidList} par son identifiant.
+     *
+     * @param id identifiant de l’entité à supprimer
      */
     public void deleteById(Integer id) {
         bidListRepository.deleteById(id);

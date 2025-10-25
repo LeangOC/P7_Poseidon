@@ -10,6 +10,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service gérant les opérations CRUD sur les entités {@link CurvePoint}.
+ */
 @Service
 public class CurvePointService {
 
@@ -21,21 +24,30 @@ public class CurvePointService {
     }
 
     /**
-     * Récupère tous les CurvePoints en base.
+     * Récupère tous les {@link CurvePoint} enregistrés.
+     *
+     * @return liste des {@link CurvePoint}
      */
     public List<CurvePoint> findAll() {
         return curvePointRepository.findAll();
     }
 
     /**
-     * Récupère un CurvePoint par son ID.
+     * Récupère un {@link CurvePoint} par son identifiant.
+     *
+     * @param id identifiant du {@link CurvePoint}
+     * @return un {@link Optional} contenant le {@link CurvePoint} trouvé
      */
     public Optional<CurvePoint> findById(Integer id) {
         return curvePointRepository.findById(id);
     }
 
     /**
-     * Crée un nouveau CurvePoint (avec la date de création actuelle).
+     * Crée et sauvegarde un nouveau {@link CurvePoint}.
+     * <p>La date de création est automatiquement renseignée avec la date actuelle.</p>
+     *
+     * @param curvePoint entité à sauvegarder
+     * @return le {@link CurvePoint} sauvegardé
      */
     public CurvePoint save(CurvePoint curvePoint) {
         curvePoint.setCreationDate(Timestamp.from(Instant.now()));
@@ -43,7 +55,12 @@ public class CurvePointService {
     }
 
     /**
-     * Met à jour un CurvePoint existant.
+     * Met à jour un {@link CurvePoint} existant.
+     *
+     * @param id identifiant du {@link CurvePoint} à mettre à jour
+     * @param updatedCurvePoint entité contenant les nouvelles valeurs
+     * @return le {@link CurvePoint} mis à jour
+     * @throws IllegalArgumentException si aucun {@link CurvePoint} n’est trouvé
      */
     public CurvePoint update(Integer id, CurvePoint updatedCurvePoint) {
         return curvePointRepository.findById(id)
@@ -59,7 +76,10 @@ public class CurvePointService {
     }
 
     /**
-     * Supprime un CurvePoint par ID.
+     * Supprime un {@link CurvePoint} par son identifiant.
+     *
+     * @param id identifiant du {@link CurvePoint}
+     * @throws IllegalArgumentException si aucun {@link CurvePoint} n’est trouvé
      */
     public void deleteById(Integer id) {
         if (curvePointRepository.existsById(id)) {
