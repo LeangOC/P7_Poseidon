@@ -216,37 +216,6 @@ public class BidList {
         this.book = book;
     }
 
-    public String getCreationName() {
-        return creationName;
-    }
-
-    public void setCreationName(String creationName) {
-        this.creationName = creationName;
-    }
-
-    public Timestamp getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Timestamp creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public String getRevisionName() {
-        return revisionName;
-    }
-
-    public void setRevisionName(String revisionName) {
-        this.revisionName = revisionName;
-    }
-
-    public Timestamp getRevisionDate() {
-        return revisionDate;
-    }
-
-    public void setRevisionDate(Timestamp revisionDate) {
-        this.revisionDate = revisionDate;
-    }
 
     public String getDealName() {
         return dealName;
